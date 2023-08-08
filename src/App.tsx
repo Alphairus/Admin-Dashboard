@@ -1,7 +1,10 @@
+import Home from "../pages/home/Home.tsx";
+
+
 function App() {
 
   return (
-    <div>Hello World</div>
+    <div><Home/></div>
   )
 }
 
