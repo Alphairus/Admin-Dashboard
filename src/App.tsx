@@ -16,7 +16,7 @@ import Product from "./pages/product/Product.tsx";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
 
-
+const queryClient = new QueryClient();
 
 function App() {
   const Layout = () => {
