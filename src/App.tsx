@@ -11,11 +11,14 @@ import Navbar from "./components/navbar/Navbar.tsx";
 import Footer from "./components/footer/Footer.tsx";
 import Menu from "./components/menu/Menu.tsx";
 import "./styles/global.scss";
+import User from "./pages/user/User.tsx";
+import Product from "./pages/product/Product.tsx";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+
+
 
 
 function App() {
-
-
   const Layout = () => {
     return (
       <div className="main">
@@ -25,13 +28,15 @@ function App() {
             <Menu />
           </div>
           <div className="contentContainer">
+          <QueryClientProvider client={queryClient}>
             <Outlet />
+          </QueryClientProvider>
           </div>
         </div>
         <Footer />
       </div>
-    )
-  }
+    );
+  };
 
   const router = createBrowserRouter([
     {
@@ -49,6 +54,14 @@ function App() {
         {
           path:"/products",
           element:<Products/>
+        },
+        {
+          path:"/users/:id",
+          element:<User/>
+        },
+        {
+          path:"/products/:id",
+          element:<Product/>
         },
       ]
     },
